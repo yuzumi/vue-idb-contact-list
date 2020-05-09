@@ -2,9 +2,9 @@ export default {
   addContact: (state, { contact }) =>
     (state.contacts = state.contacts.concat(contact)),
 
-  updateContact: (state, { id, newContact }) =>
+  editContact: (state, { newContact }) =>
     (state.contacts = state.contacts.map(contact => (
-      contact.id === id
+      contact.id === newContact.id
         ? { ...contact, ...newContact }
         : contact
     ))),

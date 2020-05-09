@@ -14,6 +14,9 @@
           <mdb-btn class="px-2 py-1 m-0" color="info" size="sm" @click.native="$emit('favorite')">
             <mdb-icon far icon="star" />
           </mdb-btn>
+          <mdb-btn class="px-2 py-1 m-0" color="success" size="sm" @click.native="handleEdit">
+            <mdb-icon icon="edit" />
+          </mdb-btn>
           <mdb-btn class="px-2 py-1 m-0" color="danger" size="sm" @click.native="$emit('remove')">
             <mdb-icon icon="trash-alt" />
           </mdb-btn>
@@ -30,6 +33,13 @@ export default {
     contact: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    handleEdit () {
+      this.$router
+        .push({ name: 'edit-contact', params: { id: this.contact.id } })
+        .catch(() => {})
     }
   }
 }
