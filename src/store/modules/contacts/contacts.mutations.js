@@ -12,7 +12,7 @@ export default {
   favoriteContact: (state, { id }) =>
     (state.contacts = state.contacts.map(contact => (
       contact.id === id
-        ? { ...contact, isFavorite: true }
+        ? { ...contact, isFavorite: !contact.isFavorite }
         : contact
     ))),
 

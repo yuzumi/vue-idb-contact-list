@@ -1,6 +1,11 @@
 <template>
   <div class="contacts">
-    <contact-list :contacts="contacts" v-if="contacts.length" />
+    <contact-list
+      :contacts="contacts"
+      @favorite="favoriteContact"
+      @remove="removeContact"
+      v-if="contacts.length"
+    />
     <no-contact v-else />
   </div>
 </template>
@@ -15,6 +20,9 @@ export default {
   name: 'Contacts',
   computed: {
     ...contacts.mapGetters(['contacts'])
+  },
+  methods: {
+    ...contacts.mapMutations(['favoriteContact', 'removeContact'])
   },
   components: {
     NoContact,
