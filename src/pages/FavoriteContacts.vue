@@ -2,16 +2,21 @@
   <div class="contacts">
     <div class="navbar mb-3">
       <nav class="nav">
-        <router-link class="nav-link" to="/" active-class="disabled">All</router-link>
-        <router-link class="nav-link" to="/favorite" active-class="disabled">Favorite</router-link>
+        <router-link class="nav-link" :to="{ name: 'contacts' }" exact active-class="disabled">All</router-link>
+        <router-link
+          class="nav-link"
+          :to="{ name: 'favorite-contacts' }"
+          exact
+          active-class="disabled"
+        >Favorite</router-link>
       </nav>
     </div>
 
     <contact-list
-      :contacts="contacts"
+      :contacts="favoriteContacts"
       @favorite="favoriteContact"
       @remove="removeContact"
-      v-if="contacts.length"
+      v-if="favoriteContacts.length"
     />
     <no-contact v-else />
   </div>
@@ -26,7 +31,7 @@ import ContactList from '@/components/contacts/ContactList'
 export default {
   name: 'Contacts',
   computed: {
-    ...contacts.mapGetters(['contacts'])
+    ...contacts.mapGetters(['favoriteContacts'])
   },
   methods: {
     ...contacts.mapMutations(['favoriteContact', 'removeContact'])

@@ -14,5 +14,10 @@ export default [
     name: 'edit-contact',
     props: true,
     component: () => import('@/pages/EditContact.vue')
+  },
+  {
+    path: '/favorite',
+    name: 'favorite-contacts',
+    component: () => import('@/pages/FavoriteContacts.vue')
   }
 ]
