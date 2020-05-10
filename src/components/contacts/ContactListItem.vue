@@ -8,17 +8,17 @@
       <mdb-card-text>email: {{ contact.email }}</mdb-card-text>
       <mdb-card-text>phone: {{ contact.phone }}</mdb-card-text>
       <div class="d-flex align-items-center">
-        <mdb-btn class="btn-action px-2 py-1 ml-0" color="info" size="sm" @click.native="$emit('favorite')">
+        <mdb-btn class="btn-action px-2 py-1 ml-0" color="info" size="sm" @click.native="$emit('favorite', contact)">
           <mdb-icon far icon="star" />
         </mdb-btn>
         <mdb-btn class="btn-action px-2 py-1" color="success" size="sm" @click.native="handleEdit">
           <mdb-icon icon="edit" />
         </mdb-btn>
-        <mdb-btn class="btn-action px-2 py-1" color="warning" size="sm" @click.native="$emit('deactivate')">
+        <mdb-btn class="btn-action px-2 py-1" color="secondary" size="sm" @click.native="$emit('deactivate', contact)">
           <mdb-icon icon="eye-slash" />
         </mdb-btn>
-        <mdb-btn class="btn-action px-2 py-1" color="danger" size="sm" @click.native="$emit('remove')">
-          <mdb-icon icon="times" />
+        <mdb-btn class="btn-action px-2 py-1" color="warning" size="sm" @click.native="$emit('remove', contact)">
+          <mdb-icon icon="trash-alt" />
         </mdb-btn>
       </div>
     </mdb-card-body>
