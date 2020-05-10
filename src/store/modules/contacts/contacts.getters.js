@@ -5,6 +5,15 @@ export default {
   contactById: state => id =>
     state.contacts.find(contact => contact.id === id),
 
-  favoriteContacts: state =>
-    state.contacts.filter(contact => contact.isFavorite)
+  activeContacts: state =>
+    state.contacts.filter(contact => contact.isActive),
+
+  inactiveContacts: state =>
+    state.contacts.filter(contact => !contact.isActive),
+
+  numberOfInactiveContacts: (_state, { inactiveContacts }) =>
+    inactiveContacts.length,
+
+  favoriteContacts: (_state, { activeContacts }) =>
+    activeContacts.filter(contact => contact.isFavorite)
 }

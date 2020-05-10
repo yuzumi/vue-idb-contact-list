@@ -1,7 +1,10 @@
+import prop from 'lodash/fp/prop'
+
 export default [
   {
     path: '/',
     name: 'contacts',
+    props: prop('query'),
     component: () => import('@/pages/Contacts.vue')
   },
   {
@@ -14,10 +17,5 @@ export default [
     name: 'edit-contact',
     props: true,
     component: () => import('@/pages/EditContact.vue')
-  },
-  {
-    path: '/favorite',
-    name: 'favorite-contacts',
-    component: () => import('@/pages/FavoriteContacts.vue')
   }
 ]

@@ -16,6 +16,13 @@ export default {
         : contact
     ))),
 
+  deactivateContact: (state, { id }) =>
+    (state.contacts = state.contacts.map(contact => (
+      contact.id === id
+        ? { ...contact, isActive: false }
+        : contact
+    ))),
+
   removeContact: (state, { id }) =>
     (state.contacts = state.contacts.filter(contact => contact.id !== id))
 }
